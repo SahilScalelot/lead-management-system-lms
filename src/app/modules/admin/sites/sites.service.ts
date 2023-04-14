@@ -11,11 +11,11 @@ export class SitesService {
   constructor(private http: HttpClient,private _globalFunctions: GlobalFunctions) { }
   
   getAgents(filter: any = {}): any {
-    return this.http.post(environment.appURL + 'superadmin/agent', filter, this._globalFunctions.getFileAuthorizationHeader());
+    return this.http.post(environment.appURL + 'agents', filter, this._globalFunctions.getFileAuthorizationHeader());
   }
 
   getOrganizer(id: any = ''): any {
-    return this.http.post(environment.appURL + 'superadmin/agent/getorganiser', {agentid: id}, this._globalFunctions.getAuthorizationHeader());
+    return this.http.post(environment.appURL + 'agents/getorganiser', {agentid: id}, this._globalFunctions.getAuthorizationHeader());
   }
 
 }

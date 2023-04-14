@@ -6,7 +6,7 @@ import { environment } from 'environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class SitesService {
+export class LeadManagerService {
 
   constructor(private http: HttpClient,private _globalFunctions: GlobalFunctions) { }
   
@@ -14,8 +14,8 @@ export class SitesService {
     return this.http.post(environment.appURL + 'agents', filter, this._globalFunctions.getFileAuthorizationHeader());
   }
 
-  getOrganizer(id: any = ''): any {
-    return this.http.post(environment.appURL + 'agents/getorganiser', {agentid: id}, this._globalFunctions.getAuthorizationHeader());
+  createLeadManager(leadManagerObj: any = ''): any {
+    return this.http.post(environment.appURL + 'users/save', leadManagerObj, this._globalFunctions.getAuthorizationHeader());
   }
 
 }

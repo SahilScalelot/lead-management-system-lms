@@ -4,18 +4,18 @@ import { fuseAnimations } from '@fuse/animations';
 import { FuseConfirmationService } from '@fuse/services/confirmation';
 import { CONSTANTS } from 'app/layout/common/constants';
 import { GlobalFunctions } from 'app/layout/common/global-functions';
-import { AgentService } from './agent.service';
+import { LeadManagerService } from './leadmanager.service';
 
 import * as _ from 'lodash';
 import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'agent',
-  templateUrl: './agent.component.html',
-  styleUrls: ['./agent.component.scss'],
+  selector: 'leadmanager',
+  templateUrl: './leadmanager.component.html',
+  styleUrls: ['./leadmanager.component.scss'],
   animations: fuseAnimations,
 })
-export class AgentComponent implements OnInit {
+export class LeadManagerComponent implements OnInit {
 
   isLoading: boolean = false;
   constants: any = CONSTANTS;
@@ -40,7 +40,7 @@ export class AgentComponent implements OnInit {
    * Constructor
    */
   constructor(
-    private _agentService: AgentService,
+    private _leadManagerService: LeadManagerService,
     private _globalFunctions: GlobalFunctions,
 
     private _changeDetectorRef: ChangeDetectorRef,
@@ -62,7 +62,7 @@ export class AgentComponent implements OnInit {
 
   getAgents(): void {
     this.isLoading = true;
-    this._agentService.getAgents(this.filterObj).subscribe((result: any) => {
+    this._leadManagerService.getAgents(this.filterObj).subscribe((result: any) => {
       if (result && result.IsSuccess) {
         this.products = result.Data.docs;
         console.log(this.products);
@@ -118,18 +118,18 @@ export class AgentComponent implements OnInit {
   
   getOrganizer(agentId: any = ''): void {
     this.isLoading = true;
-    this._agentService.getOrganizer(agentId).subscribe((result: any) => {
-      if (result && result.IsSuccess) {
-        console.log(result);
-        this.selectedProductArr = result?.Data;
-      } else {
-        this._globalFunctions.successErrorHandling(result, this, true);
-      }
-      this.isLoading = false;
-    }, (error: any) => {
-      this._globalFunctions.errorHanding(error, this, true);
-      this.isLoading = false;
-    });
+    // this._leadManagerService.getOrganizer(agentId).subscribe((result: any) => {
+    //   if (result && result.IsSuccess) {
+    //     console.log(result);
+    //     this.selectedProductArr = result?.Data;
+    //   } else {
+    //     this._globalFunctions.successErrorHandling(result, this, true);
+    //   }
+    //   this.isLoading = false;
+    // }, (error: any) => {
+    //   this._globalFunctions.errorHanding(error, this, true);
+    //   this.isLoading = false;
+    // });
   }
 
   showFlashMessage(type: 'success' | 'error'): void {
@@ -149,4 +149,8 @@ export class AgentComponent implements OnInit {
     console.log('Toggled Expand Row!', row);
     this.table.rowDetail.toggleExpandRow(row);
   }
+  newAddItems() {
+  }
+
+  
 }

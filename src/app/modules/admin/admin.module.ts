@@ -16,6 +16,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { AgentComponent } from './agent/agent.component';
 import { SitesComponent } from './sites/sites.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { LeadManagerComponent } from './leadmanager/leadmanager.component';
 
 const routes: Route[] = [
   {
@@ -25,6 +26,9 @@ const routes: Route[] = [
     path: 'agents',
     component: AgentComponent
   }, {
+    path: 'lead-manager',
+    component: LeadManagerComponent
+  }, {
     path: 'sites',
     component: SitesComponent
   }
@@ -33,7 +37,8 @@ const routes: Route[] = [
 @NgModule({
   declarations: [
     AgentComponent,
-    SitesComponent
+    SitesComponent,
+    LeadManagerComponent
   ],
   imports: [
     RouterModule.forChild(routes),

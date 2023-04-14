@@ -28,16 +28,16 @@
 
                 <!-- Mobile field -->
                 <mat-form-field class="w-full">
-                    <mat-label>Mobile address</mat-label>
+                    <mat-label>Email address</mat-label>
                     <input
-                        id="mobile"
+                        id="Email"
                         matInput
-                        [formControlName]="'mobile'">
-                    <mat-error *ngIf="signInForm.get('mobile').hasError('required')">
-                        Mobile address is required
+                        [formControlName]="'email'">
+                    <mat-error *ngIf="signInForm.get('email').hasError('required')">
+                        Email address is required
                     </mat-error>
-                    <mat-error *ngIf="signInForm.get('mobile').hasError('mobile')">
-                        Please enter a valid Mobile address
+                    <mat-error *ngIf="signInForm.get('email').hasError('email')">
+                        Please enter a valid Email address
                     </mat-error>
                 </mat-form-field>
 
@@ -68,19 +68,6 @@
                         Password is required
                     </mat-error>
                 </mat-form-field>
-
-                <!-- Actions -->
-                <div class="inline-flex items-end justify-between w-full mt-1.5">
-                    <mat-checkbox
-                        [color]="'primary'"
-                        [formControlName]="'rememberMe'">
-                        Remember me
-                    </mat-checkbox>
-                    <!-- <a
-                        class="text-md font-medium text-primary-500 hover:underline"
-                        [routerLink]="['/forgot-password']">Forgot password?
-                    </a> -->
-                </div>
 
                 <!-- Submit button -->
                 <button

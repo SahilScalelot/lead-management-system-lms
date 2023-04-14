@@ -7,7 +7,7 @@ export const environment = {
   // appURL: "http://localhost:3000/",
   // baseImageURL: "http://localhost:3000/",
 
-  appURL: "https://devapi.eventopackage.com/",
+  appURL: "https://lms.scalelot.com/",
   baseImageURL: "https://eventopackage.s3.ap-south-1.amazonaws.com/",
 };
 

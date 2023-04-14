@@ -70,7 +70,7 @@ export class AuthService {
       return throwError('User is already logged in.');
     }
 
-    return this._httpClient.post(CONSTANTS.appUrl + 'superadmin/login', credentials).pipe(
+    return this._httpClient.post(CONSTANTS.appUrl + 'login', credentials).pipe(
       switchMap((response: any) => {
 
         // Store the access token in the local storage

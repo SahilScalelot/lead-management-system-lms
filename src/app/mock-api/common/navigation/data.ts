@@ -8,8 +8,13 @@ export const defaultNavigation: FuseNavigationItem[] = [
         type : 'basic',
         icon : 'feather:users',
         link : '/admin/agents'
-    },
-    {
+    },{
+        id   : 'leadManager',
+        title: 'Lead Manager',
+        type : 'basic',
+        icon : 'heroicons_outline:office-building',
+        link : '/admin/lead-manager'
+    },{
         id   : 'sites',
         title: 'Sites',
         type : 'basic',
