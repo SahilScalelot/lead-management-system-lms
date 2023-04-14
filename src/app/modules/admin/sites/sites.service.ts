@@ -18,4 +18,8 @@ export class SitesService {
     return this.http.post(environment.appURL + 'agents/getorganiser', {agentid: id}, this._globalFunctions.getAuthorizationHeader());
   }
 
+  createSite(siteObj: any = ''): any {
+    return this.http.post(environment.appURL + 'sites/create', siteObj, this._globalFunctions.getAuthorizationHeader());
+  }
+
 }
