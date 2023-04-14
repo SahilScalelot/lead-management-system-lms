@@ -50,13 +50,19 @@
         <div class="w-full md:w-1/2 p-3" *ngIf="createLeadManagerObj.role == constants.userRoleArr[constants.userRole.LEAD_MANAGER].value">
           <mat-form-field class="fuse-mat-dense w-full fuse-mat-no-subscript flex-auto">
             <mat-label>Agent id</mat-label>
-            <input matInput [(ngModel)]="createLeadManagerObj.agentid" />
+            <mat-select [(ngModel)]="createLeadManagerObj.agentid">
+              <mat-option [value]=""></mat-option>
+              <mat-option *ngFor="let role of agentArr; let i = index;" [value]="role?._id">{{role?.name}}</mat-option>
+            </mat-select>
           </mat-form-field>
         </div>
         <div class="w-full md:w-1/2 p-3">
           <mat-form-field class="fuse-mat-dense w-full fuse-mat-no-subscript flex-auto">
-            <mat-label>Site id</mat-label>
-            <input matInput [(ngModel)]="createLeadManagerObj.siteid" />
+            <mat-label>Select Site</mat-label>
+            <mat-select [(ngModel)]="createLeadManagerObj.siteid">
+              <mat-option [value]=""></mat-option>
+              <mat-option *ngFor="let role of sitesArr; let i = index;" [value]="role?._id">{{role?.site_name}}</mat-option>
+            </mat-select>
           </mat-form-field>
         </div>
         <div class="w-full md:w-1/2 p-3">
@@ -72,7 +78,7 @@
           </mat-form-field>
         </div>
         <div class="w-full md:w-1/2 p-3">
-          <mat-form-field class="w-full">
+          <mat-form-field class="fuse-mat-dense w-full fuse-mat-no-subscript flex-auto">
             <mat-label>Password</mat-label>
             <input id="password" matInput type="password" [(ngModel)]="createLeadManagerObj.password" #passwordField>
             <button mat-icon-button type="button" (click)="passwordField.type === 'password' ? passwordField.type = 'text' : passwordField.type = 'password'" matSuffix>
