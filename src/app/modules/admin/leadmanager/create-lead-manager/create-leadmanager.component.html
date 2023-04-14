@@ -1,0 +1,91 @@
+<div class="sm:absolute sm:inset-0 flex flex-col flex-auto min-w-0 sm:overflow-hidden bg-card dark:bg-transparent">
+
+  <!-- Header -->
+  <div class="relative flex flex-col sm:flex-row flex-0 sm:items-center sm:justify-between py-8 px-6 md:px-8 border-b">
+    <!-- Loader -->
+    <div class="absolute inset-x-0 bottom-0" *ngIf="isLoading">
+      <mat-progress-bar [mode]="'indeterminate'"></mat-progress-bar>
+    </div>
+    <!-- Title -->
+    <div class="text-4xl font-extrabold tracking-tight">Create Lead Manager</div>
+  </div>
+
+  <!-- Main -->
+  <div class="flex flex-auto overflow-hidden">
+    <!-- Products list -->
+
+    <!-- 
+      "name" : "Test Agent 01",
+      "email" : "ta1@gmail.com",
+      "role" : "agent",
+      "agentid" : "",
+      "siteid" :"",
+      "mobile" : "9876543210",
+      "country_code" : "+91",
+      "password" : "TestAgent01",
+    -->
+    <div class="flex flex-col flex-auto overflow-hidden sm:overflow-y-auto">
+      <div class="flex flex-wrap p-8">
+        <div class="w-full md:w-1/2 p-3">
+          <mat-form-field class="fuse-mat-dense w-full fuse-mat-no-subscript flex-auto">
+            <mat-label>Name</mat-label>
+            <input matInput [(ngModel)]="createLeadManagerObj.name" />
+          </mat-form-field>
+        </div>
+        <div class="w-full md:w-1/2 p-3">
+          <mat-form-field class="fuse-mat-dense w-full fuse-mat-no-subscript flex-auto">
+            <mat-label>Email</mat-label>
+            <input matInput [(ngModel)]="createLeadManagerObj.email" />
+          </mat-form-field>
+        </div>
+        <div class="w-full md:w-1/2 p-3">
+          <mat-form-field class="fuse-mat-dense w-full fuse-mat-no-subscript flex-auto">
+            <mat-label>Role</mat-label>
+            <mat-select [(ngModel)]="createLeadManagerObj.role">
+              <mat-option [value]=""></mat-option>
+              <mat-option *ngFor="let role of constants.userRoleArr; let i = index;" [value]="role.value">{{role.name}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="w-full md:w-1/2 p-3" *ngIf="createLeadManagerObj.role == constants.userRoleArr[constants.userRole.LEAD_MANAGER].value">
+          <mat-form-field class="fuse-mat-dense w-full fuse-mat-no-subscript flex-auto">
+            <mat-label>Agent id</mat-label>
+            <input matInput [(ngModel)]="createLeadManagerObj.agentid" />
+          </mat-form-field>
+        </div>
+        <div class="w-full md:w-1/2 p-3">
+          <mat-form-field class="fuse-mat-dense w-full fuse-mat-no-subscript flex-auto">
+            <mat-label>Site id</mat-label>
+            <input matInput [(ngModel)]="createLeadManagerObj.siteid" />
+          </mat-form-field>
+        </div>
+        <div class="w-full md:w-1/2 p-3">
+          <mat-form-field class="fuse-mat-dense w-full fuse-mat-no-subscript flex-auto">
+            <mat-label>Mobile</mat-label>
+            <input matInput [(ngModel)]="createLeadManagerObj.mobile" />
+          </mat-form-field>
+        </div>
+        <div class="w-full md:w-1/2 p-3">
+          <mat-form-field class="fuse-mat-dense w-full fuse-mat-no-subscript flex-auto">
+            <mat-label>Country Code</mat-label>
+            <input matInput [(ngModel)]="createLeadManagerObj.country_code" />
+          </mat-form-field>
+        </div>
+        <div class="w-full md:w-1/2 p-3">
+          <mat-form-field class="w-full">
+            <mat-label>Password</mat-label>
+            <input id="password" matInput type="password" [(ngModel)]="createLeadManagerObj.password" #passwordField>
+            <button mat-icon-button type="button" (click)="passwordField.type === 'password' ? passwordField.type = 'text' : passwordField.type = 'password'" matSuffix>
+              <mat-icon class="icon-size-5" *ngIf="passwordField.type === 'password'" [svgIcon]="'heroicons_solid:eye'"></mat-icon>
+              <mat-icon class="icon-size-5" *ngIf="passwordField.type === 'text'" [svgIcon]="'heroicons_solid:eye-off'"></mat-icon>
+            </button>
+            <mat-error>Password is required</mat-error>
+          </mat-form-field>
+        </div>        
+        <div class="w-full flex flex-wrap justify-end p-3">
+          <button class="ml-auto px-6 mt-auto" mat-flat-button [color]="'primary'" (click)="createLeadManager()">Create Lead Manager</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

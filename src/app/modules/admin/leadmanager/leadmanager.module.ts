@@ -13,28 +13,24 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatSelectModule } from '@angular/material/select';
-import { AgentComponent } from './agent/agent.component';
-import { SitesComponent } from './sites/sites.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { LeadManagerModule } from './leadmanager/leadmanager.module';
+import { LeadManagerComponent } from './leadmanager.component';
+import { CreateLeadManagerComponent } from './create-lead-manager/create-leadmanager.component';
 
 const routes: Route[] = [
   {
     path: '',
-    redirectTo: 'agents'
+    component: LeadManagerComponent
   }, {
-    path: 'agents',
-    component: AgentComponent
-  }, {
-    path: 'sites',
-    component: SitesComponent
+    path: 'create',
+    component: CreateLeadManagerComponent
   }
 ];
 
 @NgModule({
   declarations: [
-    AgentComponent,
-    SitesComponent,
+    LeadManagerComponent,
+    CreateLeadManagerComponent
   ],
   imports: [
     RouterModule.forChild(routes),
@@ -53,8 +49,6 @@ const routes: Route[] = [
     MatMomentDateModule,
     MatSelectModule,
     MatCheckboxModule,
-
-    LeadManagerModule
   ]
 })
-export class AdminModule { }
+export class LeadManagerModule { }

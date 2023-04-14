@@ -13,7 +13,7 @@ export const defaultNavigation: FuseNavigationItem[] = [
         title: 'Lead Manager',
         type : 'basic',
         icon : 'heroicons_outline:office-building',
-        link : '/admin/lead-manager'
+        link : '/lead-manager'
     },{
         id   : 'sites',
         title: 'Sites',

@@ -80,6 +80,7 @@ export const appRoutes: Route[] = [
         // },
         children   : [
             {path: 'admin', loadChildren: () => import('app/modules/admin/admin.module').then(m => m.AdminModule)},
+            {path: 'lead-manager', loadChildren: () => import('app/modules/admin/leadmanager/leadmanager.module').then(m => m.LeadManagerModule)},
         ]
     }
 ];

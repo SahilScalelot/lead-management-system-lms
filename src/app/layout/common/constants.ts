@@ -205,6 +205,16 @@ export const CONSTANTS = {
     {value: 'existingusers', url: '/assets/images/existing-user.png', type: 'Existing User'}
   ],
 
+  userRole: {
+    AGENT: 0,
+    LEAD_MANAGER: 1,
+  },
+
+  userRoleArr: [
+    {name: 'Agent', value: 'agent'},
+    {name: 'Lead Manager', value: 'leadmanager'}
+  ],
+
   maxPosterSizeInMB: 10,
   maxImageSizeInMB: 3,
   maxIconSizeInKB: 500,

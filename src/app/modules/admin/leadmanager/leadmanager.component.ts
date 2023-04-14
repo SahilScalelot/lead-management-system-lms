@@ -150,6 +150,7 @@ export class LeadManagerComponent implements OnInit {
     this.table.rowDetail.toggleExpandRow(row);
   }
   newAddItems() {
+    
   }
 
   
