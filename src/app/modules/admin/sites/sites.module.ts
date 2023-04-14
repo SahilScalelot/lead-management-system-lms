@@ -13,26 +13,27 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatSelectModule } from '@angular/material/select';
-import { AgentComponent } from './agent/agent.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { LeadManagerModule } from './leadmanager/leadmanager.module';
+import { SitesComponent } from './sites.component';
+import { CreateSitesComponent } from './create-site/create-sites.component';
 
 const routes: Route[] = [
   {
     path: '',
-    redirectTo: 'agents'
+    component: SitesComponent
   }, {
-    path: 'agents',
-    component: AgentComponent
+    path: 'create',
+    component: CreateSitesComponent
   }, {
-    path: 'sites',
-    loadChildren: () => import('./sites/sites.module').then(m => m.SitesModule)
+    path: 'edit/:id',
+    component: CreateSitesComponent
   }
 ];
 
 @NgModule({
   declarations: [
-    AgentComponent
+    SitesComponent,
+    CreateSitesComponent
   ],
   imports: [
     RouterModule.forChild(routes),
@@ -50,9 +51,7 @@ const routes: Route[] = [
     MatDatepickerModule,
     MatMomentDateModule,
     MatSelectModule,
-    MatCheckboxModule,
-
-    LeadManagerModule
+    MatCheckboxModule
   ]
 })
-export class AdminModule { }
+export class SitesModule { }

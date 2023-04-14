@@ -22,4 +22,8 @@ export class SitesService {
     return this.http.post(environment.appURL + 'sites/create', siteObj, this._globalFunctions.getAuthorizationHeader());
   }
 
+  getSites(filterObj: any = ''): any {
+    return this.http.post(environment.appURL + 'sites', filterObj, this._globalFunctions.getAuthorizationHeader());
+  }
+
 }
