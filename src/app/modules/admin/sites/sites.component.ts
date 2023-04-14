@@ -26,6 +26,12 @@ export class SitesComponent implements OnInit {
     '1BHK', '2BHK', '3BHK', '4BHK', '5BHK'
   ];
 
+  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+
+  dataSource: any = [
+    {flor_no: 1, flat_no: '202', flat_type: '2BHK', flat_price: '4,40,000', flat_booked: true},
+  ]
+
   constructor(
     private _globalFunctions: GlobalFunctions,
     private _fuseConfirmationService: FuseConfirmationService,
